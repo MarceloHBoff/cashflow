@@ -11,6 +11,7 @@ export const Card = styled.div`
   background: ${props => props.theme.colors.secundary};
   padding: 1.5rem 2rem;
   border-radius: 0.25rem;
+  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.3);
 
   strong {
     color: ${props => props.theme.colors.textHighlight};

@@ -16,6 +16,7 @@ export const Container = styled.div`
     td {
       padding: 1rem 2rem;
       background: ${props => props.theme.colors.secundary};
+      box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.3);
 
       &:first-child {
         color: ${props => props.theme.colors.textHighlight};
