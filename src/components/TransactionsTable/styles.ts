@@ -6,6 +6,7 @@ export const Container = styled.div`
   table {
     width: 100%;
     border-spacing: 0 0.5rem;
+    padding: 0 1rem;
 
     th {
       padding: 1rem 2rem;
@@ -14,6 +15,7 @@ export const Container = styled.div`
     }
 
     td {
+      text-align: left;
       padding: 1rem 2rem;
       background: ${props => props.theme.colors.secundary};
       box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.3);
@@ -35,6 +37,26 @@ export const Container = styled.div`
 
       &.red {
         color: ${props => props.theme.colors.red};
+      }
+    }
+
+    div {
+      max-height: 400px;
+      overflow-y: auto;
+
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 40px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 40px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
       }
     }
   }

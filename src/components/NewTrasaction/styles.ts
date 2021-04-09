@@ -1,7 +1,7 @@
 import { transparentize } from 'polished'
 import styled, { css } from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.form`
   ${({ theme }) => css`
     h2 {
       color: ${theme.colors.text};
