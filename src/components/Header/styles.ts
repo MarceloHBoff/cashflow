@@ -27,4 +27,15 @@ export const Wrapper = styled.div`
       filter: brightness(0.9);
     }
   }
+
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    span {
+      margin-left: 1rem;
+      font-size: 2.5rem;
+    }
+  }
 `

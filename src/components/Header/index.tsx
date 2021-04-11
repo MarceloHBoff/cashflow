@@ -16,7 +16,10 @@ export default function Header() {
   return (
     <Container>
       <Wrapper>
-        <img src={logo} alt="cashflow" />
+        <div>
+          <img src={logo} alt="cashflow" />
+          <span>Cash flow</span>
+        </div>
 
         <button type="button" onClick={open}>
           New Transaction
