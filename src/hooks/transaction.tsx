@@ -9,7 +9,8 @@ import {
 
 import {
   getAllTransactions,
-  inserTransaction,
+  insertTransaction,
+  removeTransaction,
   Transaction,
   TransactionInput
 } from '../service/firebase'
@@ -17,6 +18,7 @@ import {
 type TransactionContextData = {
   transactions: Transaction[]
   createTransaction: (transaction: TransactionInput) => Promise<void>
+  deleteTransaction: (id: string) => Promise<void>
 }
 
 const TransactionContext = createContext<TransactionContextData>(
@@ -32,14 +34,21 @@ const TransactionProvider: FC = ({ children }) => {
 
   const createTransaction = useCallback(
     async (transaction: TransactionInput) => {
-      const newTrasaction = await inserTransaction({ ...transaction })
+      const newTrasaction = await insertTransaction({ ...transaction })
       setTransactions(t => [...t, newTrasaction])
     },
     []
   )
 
+  const deleteTransaction = useCallback(async (id: string) => {
+    await removeTransaction(id)
+    setTransactions(t => t.filter(tr => tr.id !== id))
+  }, [])
+
   return (
-    <TransactionContext.Provider value={{ transactions, createTransaction }}>
+    <TransactionContext.Provider
+      value={{ transactions, createTransaction, deleteTransaction }}
+    >
       {children}
     </TransactionContext.Provider>
   )

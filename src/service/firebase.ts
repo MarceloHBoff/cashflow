@@ -25,11 +25,14 @@ const getAllTransactions = async (): Promise<Transaction[]> => {
   const data = await db.ref('transactions').get()
   const result = data.toJSON()
 
-  if (result) return Object.values(result) as Transaction[]
-  else return []
+  if (result) {
+    const values = Object.values(result) as Transaction[]
+    const keys = Object.keys(result)
+    return values.map((value, index) => ({ ...value, id: keys[index] }))
+  } else return []
 }
 
-const inserTransaction = async (data: TransactionInput) => {
+const insertTransaction = async (data: TransactionInput) => {
   const response = await db.ref('transactions').push({
     ...data,
     created_at: firebase.database.ServerValue.TIMESTAMP
@@ -41,4 +44,8 @@ const inserTransaction = async (data: TransactionInput) => {
   return newTrasaction
 }
 
-export { getAllTransactions, inserTransaction }
+const removeTransaction = async (id: string) => {
+  await db.ref(`transactions/${id}`).remove()
+}
+
+export { getAllTransactions, insertTransaction, removeTransaction }

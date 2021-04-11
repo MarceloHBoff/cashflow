@@ -1,12 +1,13 @@
 import { useMemo } from 'react'
 
+import close from '../../assets/close.svg'
 import { useTransaction } from '../../hooks/transaction'
 import formatNumber from '../../utils/formatNumber'
 
 import { Container } from './styles'
 
 export default function TransactionTable() {
-  const { transactions } = useTransaction()
+  const { transactions, deleteTransaction } = useTransaction()
 
   const listTransactions = useMemo(
     () =>
@@ -30,7 +31,8 @@ export default function TransactionTable() {
               <th style={{ width: '40%' }}>Title</th>
               <th style={{ width: '30%' }}>Category</th>
               <th style={{ width: '15%' }}>Value</th>
-              <th style={{ width: '15%' }}>Date</th>
+              <th style={{ width: '10%' }}>Date</th>
+              <th style={{ width: '5%' }}></th>
             </tr>
           </thead>
         </table>
@@ -48,7 +50,12 @@ export default function TransactionTable() {
                   >
                     {transaction.value}
                   </td>
-                  <td style={{ width: '15%' }}>{transaction.date}</td>
+                  <td style={{ width: '10%' }}>{transaction.date}</td>
+                  <td style={{ width: '5%' }}>
+                    <button onClick={() => deleteTransaction(transaction.id)}>
+                      <img src={close} alt="delete" />
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
