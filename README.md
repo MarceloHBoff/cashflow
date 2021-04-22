@@ -1,16 +1,21 @@
-<h1 align="center">CASH FLOW</h1>
+<h1 align="center">
+<img align="center" alt="Cash flow" src=".github/assets/favicon.png">
+<br />
+<br />
+CASH FLOW
+</h1>
 
 <h4 align="center">
   Application to control your balance including incomes and outcomes
 </h4>
 
-<a href="https://cashflow-boff.vercel.app/">
+<a style="border: 1px solid #333; padding: 10px; border-radius: 10px; margin: 10px; font-weight: bold; text-decoration: none;" href="https://cashflow-boff.vercel.app/">
   Live Demo
 </a>
 
 ---
 
-<p align="center">
+<p style="margin-top: 10px;" align="center">
   <img alt="GitHub top languages" src="https://img.shields.io/github/languages/top/MarceloHBoff/cashflow.svg">
 
   <img alt="GitHub count languages" src="https://img.shields.io/github/languages/count/MarceloHBoff/cashflow.svg">
