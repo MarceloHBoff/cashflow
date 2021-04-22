@@ -9,14 +9,21 @@ export const Container = styled.div`
     padding: 0 1rem;
 
     th {
-      padding: 1rem 2rem;
+      padding: 0 1rem;
       text-align: left;
       line-height: 1.5rem;
     }
 
-    td {
-      text-align: left;
+    tbody,
+    thead {
       padding: 1rem 2rem;
+    }
+
+    td {
+      padding: 0 1rem;
+      height: 3rem;
+      text-align: left;
+
       background: ${props => props.theme.colors.secundary};
       box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.3);
 
